@@ -25,9 +25,14 @@ const { fifaData } = require('./fifa.js')
 	💡 İPUCU - verilen data içindeki nesnelerin(objects) "Stage" anahtarına bakmalısınız
 */
 
-function Finaller(/* kodlar buraya */) {
-	
-    /* kodlar buraya */
+
+function Finaller(fifaData) {
+	let finaller = fifaData.filter((finalSec) => {
+		return finalSec.Stage =='Final';
+	})
+    
+	return finaller;
+
 }
 
 
@@ -39,9 +44,13 @@ function Finaller(/* kodlar buraya */) {
 	3. Finaller data setindeki tüm yılları içeren "years" adındaki diziyi(array) döndürecek
 	*/
 
-function Yillar(/* kodlar buraya */) {
-	
-    /* kodlar buraya */
+function Yillar(fifaData,callback) {
+	let finaller = callback(fifaData);
+	const year = finaller.map(yilsec => {
+		return yilsec.Year;
+
+	})
+    return year;
 }
 
 
@@ -53,9 +62,10 @@ function Yillar(/* kodlar buraya */) {
 	💡 İPUCU: Beraberlikler(ties) için şimdilik endişelenmeyin (Detaylı bilgi için README dosyasına bakabilirsiniz.)
 	4. Tüm kazanan ülkelerin isimlerini içeren `kazananlar` adında bir dizi(array) döndürecek(return)  */ 
 
-function Kazananlar(/* kodlar buraya */) {
-	
-    /* kodlar buraya */
+function Kazananlar(fifaData,callback) {
+	let kazanan = callback(fifaData);
+	const kazananlar = new Array();
+    
 	
 }
 
